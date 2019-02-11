@@ -16,9 +16,17 @@ public:
     ~MainWindow();
 
 public slots:
+    void newDB();
+    void openDB();
 
 private:
     Ui::MainWindow *ui;
+
+    bool connectDB(const QString &dbName);
+    void createModel();
+    void setupView();
+
+    QString dbName;
 
 };
 

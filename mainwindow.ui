@@ -32,7 +32,7 @@
      <string>File</string>
     </property>
     <addaction name="actionOpenDB"/>
-    <addaction name="actionCreateDB"/>
+    <addaction name="actionNewDB"/>
     <addaction name="separator"/>
     <addaction name="actionPrint"/>
     <addaction name="separator"/>
@@ -68,10 +68,16 @@
    <property name="text">
     <string>OpenDB</string>
    </property>
+   <property name="toolTip">
+    <string>Open database</string>
+   </property>
   </action>
-  <action name="actionCreateDB">
+  <action name="actionNewDB">
    <property name="text">
-    <string>CreateDB</string>
+    <string>NewDB</string>
+   </property>
+   <property name="toolTip">
+    <string>Create new database</string>
    </property>
   </action>
   <action name="actionPrint">
@@ -114,5 +120,22 @@
  <resources>
   <include location="firepdep.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>365</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
