@@ -23,6 +23,7 @@ private:
     Ui::MainWindow *ui;
 
     bool connectDB(const QString &dbName);
+    bool createDB(const QString &dbName);
     void createModel();
     void setupView();
 

@@ -25,7 +25,20 @@ MainWindow::~MainWindow()
 
 void MainWindow::newDB()
 {
-
+    QFileDialog fd;
+    fd.setDefaultSuffix("db");
+    fd.setWindowTitle(trUtf8("New database"));
+    fd.setFileMode(QFileDialog::AnyFile);
+    fd.setNameFilter(trUtf8("Database (*.db)"));
+    if (fd.exec() == QDialog::Accepted) {
+        if (fd.selectedFiles().count() > 0) {
+            dbName = fd.selectedFiles().at(0);
+            setWindowTitle(trUtf8("Fire department departures - ") + dbName);
+            createDB(dbName);
+            createModel();
+            setupView();
+        }
+    }
 }
 
 void MainWindow::openDB()
@@ -56,6 +69,20 @@ bool MainWindow::connectDB(const QString &dbName)
         QMessageBox::critical(this, trUtf8("Error"), db.lastError().text());
         return false;
     }
+    return true;
+}
+
+bool MainWindow::createDB(const QString &dbName)
+{
+    if (!connectDB(dbName))
+        return false;
+    QSqlQuery query;
+    query.prepare("PRAGMA foreign_key = ON");
+    if (!query.exec()) {
+        QMessageBox::critical(this, trUtf8("Error"), query.lastError().text());
+        return false;
+    }
+    //TODO Creating and populating database tables.
     return true;
 }
 
