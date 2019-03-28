@@ -91,6 +91,9 @@
    <property name="toolTip">
     <string>Open database</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
   </action>
   <action name="actionNewDB">
    <property name="text">
@@ -99,10 +102,16 @@
    <property name="toolTip">
     <string>Create new database</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="actionPrint">
    <property name="text">
     <string>Print</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
    </property>
   </action>
   <action name="actionExit">
@@ -123,6 +132,9 @@
   <action name="actionHelp">
    <property name="text">
     <string>Help</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -157,5 +169,41 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionNewDB</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newDB()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>365</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOpenDB</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openDB()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>365</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>newDB()</slot>
+  <slot>openDB()</slot>
+ </slots>
 </ui>

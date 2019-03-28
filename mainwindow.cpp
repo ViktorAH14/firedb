@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "database.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -12,9 +13,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    connect(ui->actionOpenDB, SIGNAL(triggered(bool)), this, SLOT(openDB()));
-    connect(ui->actionNewDB, SIGNAL(triggered(bool)), this, SLOT(newDB()));
 
 }
 
@@ -74,15 +72,13 @@ bool MainWindow::connectDB(const QString &dbName)
 
 bool MainWindow::createDB(const QString &dbName)
 {
-    if (!connectDB(dbName))
-        return false;
-    QSqlQuery query;
-    query.prepare("PRAGMA foreign_key = ON");
-    if (!query.exec()) {
-        QMessageBox::critical(this, trUtf8("Error"), query.lastError().text());
+    if (!connectDB(dbName)) {
         return false;
     }
-    //TODO Creating and populating database tables.
+    DataBase db;
+    if (!db.newDeparturesDB()) {
+        QMessageBox::critical(this, trUtf8("Error"), trUtf8("Unable to create database"));
+    }
     return true;
 }
 
