@@ -1,20 +1,20 @@
-#include "database.h"
+#include "dbcreator.h"
 
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
 
-DataBase::DataBase(QObject *parent) : QObject(parent)
+DBCreator::DBCreator(QObject *parent) : QObject(parent)
 {
 
 }
 
-DataBase::~DataBase()
+DBCreator::~DBCreator()
 {
 
 }
 
-bool DataBase::newDeparturesDB()
+bool DBCreator::newDeparturesDB()
 {
     if (!createDeparturesDB()) {
         return false;
@@ -23,7 +23,7 @@ bool DataBase::newDeparturesDB()
     return true;
 }
 
-bool DataBase::createDeparturesDB()
+bool DBCreator::createDeparturesDB()
 {
     QSqlQuery query;
     query.prepare("PRAGMA foreign_keys = ON;");
@@ -89,7 +89,7 @@ bool DataBase::createDeparturesDB()
     return true;
 }
 
-bool DataBase::checkExec(QSqlQuery query)
+bool DBCreator::checkExec(QSqlQuery query)
 {
     if (!query.exec()) {
         qDebug() << "Error " << query.lastError().text();
@@ -98,7 +98,7 @@ bool DataBase::checkExec(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createDeparturesTypeTable(QSqlQuery query)
+bool DBCreator::createDeparturesTypeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE DeparturesType("
                   "DepTypeID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -108,7 +108,7 @@ bool DataBase::createDeparturesTypeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createAssitingTable(QSqlQuery query)
+bool DBCreator::createAssitingTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Assisting("
                   "AssistingID  INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -127,7 +127,7 @@ bool DataBase::createAssitingTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFireSafetyTable(QSqlQuery query)
+bool DBCreator::createFireSafetyTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE FireSafety("
                   "FireSafetyID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -146,7 +146,7 @@ bool DataBase::createFireSafetyTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createOwerTable(QSqlQuery query)
+bool DBCreator::createOwerTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Ower("
                   "OwerID       INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -165,7 +165,7 @@ bool DataBase::createOwerTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createTrainingTypeTable(QSqlQuery query)
+bool DBCreator::createTrainingTypeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE TrainingType("
                   "TrainingTypeID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -175,7 +175,7 @@ bool DataBase::createTrainingTypeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createTrainingTable(QSqlQuery query)
+bool DBCreator::createTrainingTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Training("
                   "TrainingID       INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -196,7 +196,7 @@ bool DataBase::createTrainingTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFalseDepartureTable(QSqlQuery query)
+bool DBCreator::createFalseDepartureTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE FalseDeparture("
                   "FalseID      INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -215,7 +215,7 @@ bool DataBase::createFalseDepartureTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createTypeUnuccountingFireTable(QSqlQuery query)
+bool DBCreator::createTypeUnuccountingFireTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE TypeUnuccountingFire("
                   "TypeUnuccountingFireID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -225,7 +225,7 @@ bool DataBase::createTypeUnuccountingFireTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createUnuccountingFireTable(QSqlQuery query)
+bool DBCreator::createUnuccountingFireTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE UnuccountingFire("
                   "UnnccountingFireID       INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -253,7 +253,7 @@ bool DataBase::createUnuccountingFireTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createSignalingTable(QSqlQuery query)
+bool DBCreator::createSignalingTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Signaling("
                   "SignalingID  INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -272,7 +272,7 @@ bool DataBase::createSignalingTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createDistrictsTable(QSqlQuery query)
+bool DBCreator::createDistrictsTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Districts("
                   "DistrictID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -282,7 +282,7 @@ bool DataBase::createDistrictsTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFireResistanceTable(QSqlQuery query)
+bool DBCreator::createFireResistanceTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE FireResistance("
                   "ResistanceID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -292,7 +292,7 @@ bool DataBase::createFireResistanceTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createCauseFireTable(QSqlQuery query)
+bool DBCreator::createCauseFireTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE CauseFire("
                   "CauseID  INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -302,7 +302,7 @@ bool DataBase::createCauseFireTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createTypeObjectTable(QSqlQuery query)
+bool DBCreator::createTypeObjectTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE TypeObject("
                   "TypeObjectID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -312,7 +312,7 @@ bool DataBase::createTypeObjectTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createOwnTypeTable(QSqlQuery query)
+bool DBCreator::createOwnTypeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE OwnType("
                   "QwnTypeID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -322,7 +322,7 @@ bool DataBase::createOwnTypeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createVentilationTypeTable(QSqlQuery query)
+bool DBCreator::createVentilationTypeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE VentilationType("
                   "VentilationTypeID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -332,7 +332,7 @@ bool DataBase::createVentilationTypeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createHeatingTypeTable(QSqlQuery query)
+bool DBCreator::createHeatingTypeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE HeatingType("
                   "HeatingTypeID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -342,7 +342,7 @@ bool DataBase::createHeatingTypeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFireTable(QSqlQuery query)
+bool DBCreator::createFireTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Fire("
                   "FireID           INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -424,7 +424,7 @@ bool DataBase::createFireTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createVictimsFireTable(QSqlQuery query)
+bool DBCreator::createVictimsFireTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE VictimsFire("
                   "VictimsFireID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -442,7 +442,7 @@ bool DataBase::createVictimsFireTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createDeadFireTable(QSqlQuery query)
+bool DBCreator::createDeadFireTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE DeadFire("
                   "DeadFireID       INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -460,7 +460,7 @@ bool DataBase::createDeadFireTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createRatingTable(QSqlQuery query)
+bool DBCreator::createRatingTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Rating("
                   "RatingID INTEGER PRIMATY KEY AUTOINCRAMANT, "
@@ -470,7 +470,7 @@ bool DataBase::createRatingTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFireExtinguisherTable(QSqlQuery query)
+bool DBCreator::createFireExtinguisherTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE FireExtinguisher("
                   "FireExtinguisherID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -486,7 +486,7 @@ bool DataBase::createFireExtinguisherTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createInternalWaterSupplyTable(QSqlQuery query)
+bool DBCreator::createInternalWaterSupplyTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE InternalWaterSuplly("
                   "InternalWaterSapplyID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -500,7 +500,7 @@ bool DataBase::createInternalWaterSupplyTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createHydrantTable(QSqlQuery query)
+bool DBCreator::createHydrantTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Hydrant("
                   "HydrantID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -515,7 +515,7 @@ bool DataBase::createHydrantTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFirePondTable(QSqlQuery query)
+bool DBCreator::createFirePondTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE FirePond("
                   "FirePondID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -528,7 +528,7 @@ bool DataBase::createFirePondTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createNaturalFireReservoirTable(QSqlQuery query)
+bool DBCreator::createNaturalFireReservoirTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE NaturalFireReservoir("
                   "NaturalFireReservoirID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -541,7 +541,7 @@ bool DataBase::createNaturalFireReservoirTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createStateFireServiceTable(QSqlQuery query)
+bool DBCreator::createStateFireServiceTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE StateFireService("
                   "StateFireDerviceID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -561,7 +561,7 @@ bool DataBase::createStateFireServiceTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createDepartmentalFireBrigadeTable(QSqlQuery query)
+bool DBCreator::createDepartmentalFireBrigadeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE DepartmentalFireBrigade("
                   "DepartmentalFireBrigadeID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -581,7 +581,7 @@ bool DataBase::createDepartmentalFireBrigadeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createVoluntaryFireBrigadeTable(QSqlQuery query)
+bool DBCreator::createVoluntaryFireBrigadeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE VoluntaryFireBrigade("
                   "VoluntaryFireBrigadeID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -601,7 +601,7 @@ bool DataBase::createVoluntaryFireBrigadeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createLocalFireBrigadeTable(QSqlQuery query)
+bool DBCreator::createLocalFireBrigadeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE LocalFireBrigade("
                   "LocalFireBrigadeID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -621,7 +621,7 @@ bool DataBase::createLocalFireBrigadeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createPrivateFireBrigadeTable(QSqlQuery query)
+bool DBCreator::createPrivateFireBrigadeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE PrivateFireBrigade("
                   "PrivateFireBrigadeID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -641,7 +641,7 @@ bool DataBase::createPrivateFireBrigadeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createPopulationOrganizationTable(QSqlQuery query)
+bool DBCreator::createPopulationOrganizationTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE PopulationOrganization("
                   "PopulationOrganizationID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -654,7 +654,7 @@ bool DataBase::createPopulationOrganizationTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createOperationalHeadquartersTable(QSqlQuery query)
+bool DBCreator::createOperationalHeadquartersTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE OperationalHeadquarters("
                   "OperationalHeadquartersID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -668,7 +668,7 @@ bool DataBase::createOperationalHeadquartersTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFireDestroyedTable(QSqlQuery query)
+bool DBCreator::createFireDestroyedTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE FireDestroyed("
                   "FireDestroyedID  INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -687,7 +687,7 @@ bool DataBase::createFireDestroyedTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFireDamagedTable(QSqlQuery query)
+bool DBCreator::createFireDamagedTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE FireDamaged("
                   "FireDamagesID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -706,7 +706,7 @@ bool DataBase::createFireDamagedTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createSavedTable(QSqlQuery query)
+bool DBCreator::createSavedTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Saved("
                   "SavedID      INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -725,7 +725,7 @@ bool DataBase::createSavedTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createBarrelTypeTable(QSqlQuery query)
+bool DBCreator::createBarrelTypeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE BarrelType("
                   "BarrelTypeID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -735,7 +735,7 @@ bool DataBase::createBarrelTypeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createBarrelsTable(QSqlQuery query)
+bool DBCreator::createBarrelsTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Barrels("
                   "BarrelsID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -749,7 +749,7 @@ bool DataBase::createBarrelsTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createGDZSTable(QSqlQuery query)
+bool DBCreator::createGDZSTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE GDZS("
                   "GDZSID           INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -765,7 +765,7 @@ bool DataBase::createGDZSTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createFireAutomaticsTable(QSqlQuery query)
+bool DBCreator::createFireAutomaticsTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE FireAutomatics("
                   "FireAutomaticsID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -779,7 +779,7 @@ bool DataBase::createFireAutomaticsTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createOperationalDocTable(QSqlQuery query)
+bool DBCreator::createOperationalDocTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE OperationalDoc("
                   "OperationalDocID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -793,7 +793,7 @@ bool DataBase::createOperationalDocTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createInvestigativeTeamTable(QSqlQuery query)
+bool DBCreator::createInvestigativeTeamTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE InvestigativeTeam("
                   "InvestigativeTeamID  INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -808,7 +808,7 @@ bool DataBase::createInvestigativeTeamTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createTypeTrafficAccidentTable(QSqlQuery query)
+bool DBCreator::createTypeTrafficAccidentTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE TypeTrafficAccident("
                   "TypeTrafficAccidentID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -818,7 +818,7 @@ bool DataBase::createTypeTrafficAccidentTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createAccidentAlertTable(QSqlQuery query)
+bool DBCreator::createAccidentAlertTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE AccidentAlert("
                   "AccidentAlertID  INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -828,7 +828,7 @@ bool DataBase::createAccidentAlertTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createSourceInfTable(QSqlQuery query)
+bool DBCreator::createSourceInfTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE SourceInf("
                   "SourceInfID  INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -838,7 +838,7 @@ bool DataBase::createSourceInfTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createSecondDamagedFactorsTable(QSqlQuery query)
+bool DBCreator::createSecondDamagedFactorsTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE SecondDamagedFactors("
                   "SecondDamagedFactorsID   INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -848,7 +848,7 @@ bool DataBase::createSecondDamagedFactorsTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createTrafficAccidentTable(QSqlQuery query)
+bool DBCreator::createTrafficAccidentTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE TrafficAccident("
                   "TrafficAccidentID        INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -889,7 +889,7 @@ bool DataBase::createTrafficAccidentTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createVehicleTypeTable(QSqlQuery query)
+bool DBCreator::createVehicleTypeTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE VehicleType("
                   "VehicleTypeID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -899,7 +899,7 @@ bool DataBase::createVehicleTypeTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createVehiclesTable(QSqlQuery query)
+bool DBCreator::createVehiclesTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Vehicles("
                   "VehiclesID           INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -916,7 +916,7 @@ bool DataBase::createVehiclesTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createVictimsAccidentTable(QSqlQuery query)
+bool DBCreator::createVictimsAccidentTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE VictimsAccident("
                   "VictimsAccidentID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -933,7 +933,7 @@ bool DataBase::createVictimsAccidentTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createDeadAccidentTable(QSqlQuery query)
+bool DBCreator::createDeadAccidentTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE DeadAccident("
                   "DeadAccidenID        INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -950,7 +950,7 @@ bool DataBase::createDeadAccidentTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createTypeASRTable(QSqlQuery query)
+bool DBCreator::createTypeASRTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE TypeASR("
                   "TypeASRID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -960,7 +960,7 @@ bool DataBase::createTypeASRTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createASRTable(QSqlQuery query)
+bool DBCreator::createASRTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE ASR("
                   "ASRID                INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -975,7 +975,7 @@ bool DataBase::createASRTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createExistingASFTable(QSqlQuery query)
+bool DBCreator::createExistingASFTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE ExistingASF("
                   "ExistingASFID    INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -985,7 +985,7 @@ bool DataBase::createExistingASFTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createASFTable(QSqlQuery query)
+bool DBCreator::createASFTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE ASF("
                   "ASFID                INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -1002,7 +1002,7 @@ bool DataBase::createASFTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createTypeInstrumentTable(QSqlQuery query)
+bool DBCreator::createTypeInstrumentTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE TypeInstrument("
                   "TypeInstrumentID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -1012,7 +1012,7 @@ bool DataBase::createTypeInstrumentTable(QSqlQuery query)
     return true;
 }
 
-bool DataBase::createInstrumentTable(QSqlQuery query)
+bool DBCreator::createInstrumentTable(QSqlQuery query)
 {
     query.prepare("CREATE TABLE Instrument("
                   "InstrumentID     INTEGER PRIMARY KEY AUTOINCREMENT, "

@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    database.cpp
+    dbcreator.cpp \
+    mainmodel.cpp
 
 HEADERS  += mainwindow.h \
-    database.h
+    dbcreator.h \
+    mainmodel.h
 
 FORMS    += mainwindow.ui
 

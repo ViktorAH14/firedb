@@ -6,12 +6,12 @@
 
 class QSqlQuery;
 
-class DataBase : public QObject
+class DBCreator : public QObject
 {
     Q_OBJECT
 public:
-    explicit DataBase(QObject *parent = 0);
-    ~DataBase();
+    explicit DBCreator(QObject *parent = 0);
+    ~DBCreator();
 
 signals:
 

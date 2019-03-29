@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "database.h"
+#include "dbcreator.h"
+#include "mainmodel.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -75,7 +76,7 @@ bool MainWindow::createDB(const QString &dbName)
     if (!connectDB(dbName)) {
         return false;
     }
-    DataBase db;
+    DBCreator db;
     if (!db.newDeparturesDB()) {
         QMessageBox::critical(this, trUtf8("Error"), trUtf8("Unable to create database"));
     }
@@ -84,10 +85,13 @@ bool MainWindow::createDB(const QString &dbName)
 
 void MainWindow::createModel()
 {
-
+    mainmodel = new MainModel;
+    mainmodel->setQuery("SELECT * FROM Fire");
 }
 
 void MainWindow::setupView()
 {
-
+    ui->tableView->setModel(mainmodel);
+    ui->tableView->setColumnHidden(0, true);
+    ui->tableView->resizeColumnsToContents();
 }

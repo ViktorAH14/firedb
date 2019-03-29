@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class MainModel;
+
 namespace Ui {
 class MainWindow;
 }
@@ -28,6 +30,7 @@ private:
     void setupView();
 
     QString dbName;
+    MainModel *mainmodel;
 
 };
 
