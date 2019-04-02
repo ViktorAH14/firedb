@@ -82,6 +82,7 @@ void MainWindow::showSignalingForm()
 {
     SignalingForm *addSignalingTable = new SignalingForm();
     addSignalingTable->setWindowTitle(trUtf8("Add departure to trigger the alarm"));
+    addSignalingTable->setMapper(signalingMapper);
     addSignalingTable->exec();
 }
 

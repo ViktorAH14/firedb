@@ -17,8 +17,4 @@ SignalingForm::~SignalingForm()
 void SignalingForm::setMapper(TableIOMapper *mapper)
 {
     this->mapper = mapper;
-<<<<<<< Updated upstream
-    mapper->addDataWidget(ui->depTypeCB, "DepTypeID");
-=======
->>>>>>> Stashed changes
 }
