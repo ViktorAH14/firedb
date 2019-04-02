@@ -2,6 +2,7 @@
 #define SIGNALINGFORM_H
 
 #include <QDialog>
+#include <QPointer>
 
 namespace Ui {
 class SignalingForm;

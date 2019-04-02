@@ -17,5 +17,5 @@ SignalingForm::~SignalingForm()
 void SignalingForm::setMapper(TableIOMapper *mapper)
 {
     this->mapper = mapper;
-    mapper->add
+    mapper->addDataWidget(ui->depTypeCB, "DepTypeID");
 }

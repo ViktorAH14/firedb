@@ -2,7 +2,7 @@
 #define TABLEVIEW_H
 
 #include <QDialog>
-//#include <QPointer>
+#include <QPointer>
 
 namespace Ui {
 class TableView;
