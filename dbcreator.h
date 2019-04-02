@@ -79,6 +79,8 @@ private:
     bool createTypeInstrumentTable(QSqlQuery query);
     bool createInstrumentTable(QSqlQuery query);
 
+    bool createMainView(QSqlQuery query);
+
     QSqlDatabase db;
 };
 

@@ -85,6 +85,7 @@ bool DBCreator::createDeparturesDB()
     createASFTable(query);
     createTypeInstrumentTable(query);
     createInstrumentTable(query);
+    createMainView(query);
 
     return true;
 }
@@ -113,13 +114,13 @@ bool DBCreator::createAssitingTable(QSqlQuery query)
     query.prepare("CREATE TABLE Assisting("
                   "AssistingID  INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "DepTypeID    INTEGER NOT NULL, "
-                  "Adress       TEXT    NOT NULL, "
+                  "Address      TEXT    NOT NULL, "
                   "DepDate      TEXT    NOT NULL, "
                   "DepTime      TEXT    NOT NULL, "
                   "ArrivalDate  TEXT    NOT NULL, "
                   "ArrivalTime  TEXT    NOT NULL, "
                   "ReturnDate   TEXT    NOT NULL, "
-                  "Returntime   TEXT    NOT NULL, "
+                  "ReturnTime   TEXT    NOT NULL, "
                   "Description  TEXT    NOT NULL, "
                   "FOREIGN KEY(DepTypeID)   REFERENCES  DeparturesType(DepTypeID))");
     checkExec(query);
@@ -132,7 +133,7 @@ bool DBCreator::createFireSafetyTable(QSqlQuery query)
     query.prepare("CREATE TABLE FireSafety("
                   "FireSafetyID INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "DepTypeID    INTEGER NOT NULL, "
-                  "Adress       TEXT    NOT NULL, "
+                  "Address      TEXT    NOT NULL, "
                   "DepDate      TEXT    NOT NULL, "
                   "DepTime      TEXT    NOT NULL, "
                   "ArrivalDate  TEXT    NOT NULL, "
@@ -151,7 +152,7 @@ bool DBCreator::createOwerTable(QSqlQuery query)
     query.prepare("CREATE TABLE Ower("
                   "OwerID       INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "DepTypeID    INTEGER NOT NULL, "
-                  "Adress       TEXT    NOT NULL, "
+                  "Address      TEXT    NOT NULL, "
                   "DepDate      TEXT    NOT NULL, "
                   "DepTime      TEXT    NOT NULL, "
                   "ArrivalDate  TEXT    NOT NULL, "
@@ -181,7 +182,7 @@ bool DBCreator::createTrainingTable(QSqlQuery query)
                   "TrainingID       INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "DepTypeID        INTEGER NOT NULL, "
                   "TrainingTypeID   INTEGER NOT NULL, "
-                  "Adress           TEXT    NOT NULL, "
+                  "Address          TEXT    NOT NULL, "
                   "DepDate          TEXT    NOT NULL, "
                   "DepTime          TEXT    NOT NULL, "
                   "ArrivalDate      TEXT    NOT NULL, "
@@ -201,7 +202,7 @@ bool DBCreator::createFalseDepartureTable(QSqlQuery query)
     query.prepare("CREATE TABLE FalseDeparture("
                   "FalseID      INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "DepTypeID    INTEGER NOT NULL, "
-                  "Adress       TEXT    NOT NULL, "
+                  "Address      TEXT    NOT NULL, "
                   "DepDate      TEXT    NOT NULL, "
                   "DepTime      TEXT    NOT NULL, "
                   "ArrivalDate  TEXT    NOT NULL, "
@@ -231,7 +232,7 @@ bool DBCreator::createUnuccountingFireTable(QSqlQuery query)
                   "UnnccountingFireID       INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "DepTypeID                INTEGER NOT NULL, "
                   "TypeUnuccountingFireID   INTEGER NOT NULL, "
-                  "Adress                   TEXT    NOT NULL, "
+                  "Address                  TEXT    NOT NULL, "
                   "Reported                 TEXT    NOT NULL, "
                   "DepDate                  TEXT    NOT NULL, "
                   "DepTime                  TEXT    NOT NULL, "
@@ -258,7 +259,7 @@ bool DBCreator::createSignalingTable(QSqlQuery query)
     query.prepare("CREATE TABLE Signaling("
                   "SignalingID  INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "DepTypeID    INTEGER NOT NULL, "
-                  "Adress       TEXT    NOT NULL, "
+                  "Address       TEXT    NOT NULL, "
                   "DepDate      TEXT    NOT NULL, "
                   "DepTime      TEXT    NOT NULL, "
                   "ArrivalDate  TEXT    NOT NULL, "
@@ -356,7 +357,7 @@ bool DBCreator::createFireTable(QSqlQuery query)
                   "DetectionTime        TEXT    NOT NULL, "
                   "DetectionArea        INTEGER NOT NULL, "
                   "DistrictID           INTEGER NOT NULL, "
-                  "Adress               TEXT    NOT NULL, "
+                  "Address              TEXT    NOT NULL, "
                   "TypeObjectID         INTEGER NOT NULL, "
                   "OwnTypeID            INTEGER NOT NULL, "
                   "TotalNumPeopleObj    INTEGER NOT NULL    DEFAULT 0, "
@@ -389,8 +390,8 @@ bool DBCreator::createFireTable(QSqlQuery query)
                   "DepDate              TEXT    NOT NULL, "
                   "DepTime              TEXT    NOT NULL, "
                   "DepArea              INTEGER NOT NULL, "
-                  "FirstArrivalDate     TEXT    NOT NULL, "
-                  "FirstArrivalTime     TEXT    NOT NULL, "
+                  "ArrivalDate          TEXT    NOT NULL, "
+                  "ArrivalTime          TEXT    NOT NULL, "
                   "FirstArrivalArea     INTEGER NOT NULL, "
                   "FirstBarrelDate      TEXT    NOT NULL, "
                   "FiratBarrelTime      TEXT    NOT NULL, "
@@ -856,6 +857,7 @@ bool DBCreator::createTrafficAccidentTable(QSqlQuery query)
                   "TrafficAccidentDate      TEXT    NOT NULL, "
                   "TrafficAccidentTime      TEXT    NOT NULL, "
                   "TypeAccidentID           INTEGER NOT NULL, "
+                  "Address                  TEXT    NOT NULL, "
                   "Highway                  TEXT    NOT NULL, "
                   "Kilometer                TEXT    NOT NULL, "
                   "Region                   TEXT    NOT NULL, "
@@ -871,6 +873,8 @@ bool DBCreator::createTrafficAccidentTable(QSqlQuery query)
                   "ArrivalTime              TEXT    NOT NULL, "
                   "OffDate                  TEXT    NOT NULL, "
                   "OffTime                  TEXT    NOT NULL, "
+                  "ReturnDate               TEXT    NOT NULL, "
+                  "ReturnTime               TEXT    NOT NULL, "
                   "AccidentAlertID          INTEGER NOT NULL, "
                   "SourceInfID              INTEGER NOT NULL, "
                   "UnlockPiople             INTEGER NOT NULL, "
@@ -1019,6 +1023,32 @@ bool DBCreator::createInstrumentTable(QSqlQuery query)
                   "TypeInstrumentID INTEGER NOT NULL, "
                   "Instrument       TEXT    NOT NULL, "
                   "FOREIGN KEY(TypeInstrumentID)    REFERENCES  TypeInsrument(TypeInstrumentID))");
+    checkExec(query);
+
+    return true;
+}
+
+bool DBCreator::createMainView(QSqlQuery query)
+{
+    query.prepare("CREATE VIEW Main  AS "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM Fire "
+                  "INNER JOIN DeparturesType USING (DepTypeID) UNION "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM UnuccountingFire "
+                  "INNER JOIN DeparturesType USING (DepTypeID) UNION "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM TrafficAccident "
+                  "INNER JOIN DeparturesType USING (DepTypeID) UNION "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM Signaling "
+                  "INNER JOIN DeparturesType USING (DepTypeID) UNION "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM Training "
+                  "INNER JOIN DeparturesType USING (DepTypeID) UNION "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM FalseDeparture "
+                  "INNER JOIN DeparturesType USING (DepTypeID) UNION "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM Assisting "
+                  "INNER JOIN DeparturesType USING (DepTypeID) UNION "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM FireSafety "
+                  "INNER JOIN DeparturesType USING (DepTypeID) UNION "
+                  "SELECT DepDate, DepTime, DepType, Address, ArrivalDate, ArrivalTime, ReturnDate, ReturnTime FROM Ower "
+                  "INNER JOIN DeparturesType USING (DepTypeID)");
     checkExec(query);
 
     return true;

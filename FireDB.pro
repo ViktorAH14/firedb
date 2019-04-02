@@ -15,13 +15,21 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     dbcreator.cpp \
-    mainmodel.cpp
+    table.cpp \
+    tableiomapper.cpp \
+    singletableview.cpp \
+    signalingform.cpp
 
 HEADERS  += mainwindow.h \
     dbcreator.h \
-    mainmodel.h
+    table.h \
+    tableiomapper.h \
+    singletableview.h \
+    signalingform.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    tableview.ui \
+    signalingform.ui
 
 RESOURCES += \
     firepdep.qrc

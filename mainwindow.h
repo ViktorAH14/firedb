@@ -2,8 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPointer>
 
-class MainModel;
+class Table;
+class TableIOMapper;
+class SingleTableView;
+
+typedef QPointer<Table> TablePtr;
+typedef QPointer<TableIOMapper> TableMapperPtr;
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +26,9 @@ public:
 public slots:
     void newDB();
     void openDB();
+    void editSignalingTable();
+    void editDeparturesTypeTable();
+    void showSignalingForm();
 
 private:
     Ui::MainWindow *ui;
@@ -28,9 +37,20 @@ private:
     bool createDB(const QString &dbName);
     void createModel();
     void setupView();
+    void deleteModel();
 
     QString dbName;
-    MainModel *mainmodel;
+
+    TablePtr mainTable;
+    TableMapperPtr mainMapper;
+
+    TablePtr signalingTable;
+    TableMapperPtr signalingMapper;
+    SingleTableView *signalingTableView;
+
+    TablePtr departuresTypeTable;
+    TableMapperPtr departuresTypeMapper;
+    SingleTableView *departuresTypeView;
 
 };
 
