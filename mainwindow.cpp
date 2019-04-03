@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->dateEditFrom->setDate(QDate::currentDate());
+    ui->dateEditTo->setDate(QDate::currentDate());
 
 }
 
@@ -79,7 +81,9 @@ void MainWindow::editDeparturesTypeTable()
 
 void MainWindow::showSignalingForm()
 {
-
+    SignalingForm *addSignalingDeparture = new SignalingForm();
+    addSignalingDeparture->setWindowTitle(trUtf8("Add exit to the alarm"));
+    addSignalingDeparture->exec();
 }
 
 bool MainWindow::connectDB(const QString &dbName)

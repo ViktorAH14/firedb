@@ -140,7 +140,7 @@
      <property name="title">
       <string>Add departures</string>
      </property>
-     <addaction name="actionSignalingForm"/>
+     <addaction name="actionAddSignalingDeparture"/>
     </widget>
     <widget class="QMenu" name="menuEdit_table">
      <property name="title">
@@ -168,7 +168,7 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <addaction name="separator"/>
   </widget>
@@ -252,12 +252,9 @@
     <string>Edit Signalling table</string>
    </property>
   </action>
-  <action name="actionSignalingForm">
+  <action name="actionAddSignalingDeparture">
    <property name="text">
-    <string>SignalingForm</string>
-   </property>
-   <property name="toolTip">
-    <string>Show signaling form view</string>
+    <string>AddSignalingDeparture</string>
    </property>
   </action>
  </widget>
@@ -347,22 +344,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>actionSignalingForm</sender>
-   <signal>triggered(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>showSignalingForm()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>548</x>
-     <y>365</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pbApply</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -371,6 +352,22 @@
     <hint type="sourcelabel">
      <x>73</x>
      <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAddSignalingDeparture</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showSignalingForm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>464</x>
