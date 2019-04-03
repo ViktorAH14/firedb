@@ -6,6 +6,7 @@
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QSqlTableModel>
 #include <QSqlError>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -99,10 +100,14 @@ bool MainWindow::createDB(const QString &dbName)
 
 void MainWindow::createModel()
 {
-
+    m_model = new QSqlTableModel(this);
+    m_model->setTable("Main");
+    m_model->select();
 }
 
 void MainWindow::setupView()
 {
-
+    ui->tableView->setModel(m_model);
+    ui->tableView->resizeColumnsToContents();
+    ui->tableView->horizontalHeader()->setStretchLastSection(true);
 }

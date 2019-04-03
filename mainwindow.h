@@ -10,6 +10,8 @@ namespace Ui {
 class MainWindow;
 }
 
+class QSqlTableModel;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -34,6 +36,7 @@ private:
     void setupView();
 
     QString dbName;
+    QSqlTableModel *m_model;
 
     SingleTableView *signalingTableView;
 
