@@ -61,6 +61,14 @@ void MainWindow::openDB()
 
 }
 
+void MainWindow::sortData()
+{
+    m_model->setFilter(QString("DepDate BETWEEN '%1' AND '%2'")
+                       .arg(ui->dateEditFrom->date().toString("yyyy-MM-dd"),
+                            ui->dateEditTo->date().toString("yyyy-MM-dd")));
+    m_model->select();
+}
+
 void MainWindow::editSignalingTable()
 {
 }
@@ -107,7 +115,9 @@ void MainWindow::createModel()
 
 void MainWindow::setupView()
 {
-    ui->tableView->setModel(m_model);
-    ui->tableView->resizeColumnsToContents();
-    ui->tableView->horizontalHeader()->setStretchLastSection(true);
+    ui->tableViewMain->setModel(m_model);
+    ui->tableViewMain->resizeColumnsToContents();
+    ui->tableViewMain->horizontalHeader()->setStretchLastSection(true);
+    ui->dateEditFrom->setDate(QDate::currentDate());
+    ui->dateEditTo->setDate(QDate::currentDate());
 }

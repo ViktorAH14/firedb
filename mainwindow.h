@@ -20,9 +20,10 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-public slots:
+private slots:
     void newDB();
     void openDB();
+    void sortData();
     void editSignalingTable();
     void editDeparturesTypeTable();
     void showSignalingForm();
