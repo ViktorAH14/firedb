@@ -2,15 +2,10 @@
 #define SIGNALINGFORM_H
 
 #include <QDialog>
-#include <QPointer>
 
 namespace Ui {
 class SignalingForm;
 }
-
-class TableIOMapper;
-
-typedef QPointer<TableIOMapper> MapperPtr;
 
 class SignalingForm : public QDialog
 {
@@ -20,11 +15,8 @@ public:
     explicit SignalingForm(QWidget *parent = 0);
     ~SignalingForm();
 
-    void setMapper(TableIOMapper *mapper);
-
 private:
     Ui::SignalingForm *ui;
-    MapperPtr mapper;
 };
 
 #endif // SIGNALINGFORM_H

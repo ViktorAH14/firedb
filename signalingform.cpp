@@ -1,6 +1,5 @@
 #include "signalingform.h"
 #include "ui_signalingform.h"
-#include "tableiomapper.h"
 
 SignalingForm::SignalingForm(QWidget *parent) :
     QDialog(parent),
@@ -12,9 +11,4 @@ SignalingForm::SignalingForm(QWidget *parent) :
 SignalingForm::~SignalingForm()
 {
     delete ui;
-}
-
-void SignalingForm::setMapper(TableIOMapper *mapper)
-{
-    this->mapper = mapper;
 }

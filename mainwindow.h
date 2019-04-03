@@ -2,14 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QPointer>
 
-class Table;
-class TableIOMapper;
 class SingleTableView;
 
-typedef QPointer<Table> TablePtr;
-typedef QPointer<TableIOMapper> TableMapperPtr;
 
 namespace Ui {
 class MainWindow;
@@ -37,19 +32,11 @@ private:
     bool createDB(const QString &dbName);
     void createModel();
     void setupView();
-    void deleteModel();
 
     QString dbName;
 
-    TablePtr mainTable;
-    TableMapperPtr mainMapper;
-
-    TablePtr signalingTable;
-    TableMapperPtr signalingMapper;
     SingleTableView *signalingTableView;
 
-    TablePtr departuresTypeTable;
-    TableMapperPtr departuresTypeMapper;
     SingleTableView *departuresTypeView;
 
 };

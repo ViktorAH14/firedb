@@ -2,15 +2,10 @@
 #define TABLEVIEW_H
 
 #include <QDialog>
-#include <QPointer>
 
 namespace Ui {
 class TableView;
 }
-
-class TableIOMapper;
-
-typedef QPointer<TableIOMapper> MapperPtr;
 
 class SingleTableView : public QDialog
 {
@@ -20,8 +15,6 @@ public:
     explicit SingleTableView(QWidget *parent = 0);
     ~SingleTableView();
 
-    void setMapper(TableIOMapper *mapper);
-
 private slots:
     void addRow();
     void save();
@@ -29,7 +22,6 @@ private slots:
 
 private:
     Ui::TableView *ui;
-    MapperPtr mapper;
 };
 
 #endif // TABLEVIEW_H

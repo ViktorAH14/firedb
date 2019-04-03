@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dbcreator.h"
-#include "table.h"
-#include "tableiomapper.h"
 #include "singletableview.h"
 #include "signalingform.h"
 
@@ -17,12 +15,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    signalingTableView = new SingleTableView();
-    signalingTableView->setWindowTitle(trUtf8("Signalling table"));
-
-    departuresTypeView = new SingleTableView();//NOTE move
-    departuresTypeView->setWindowTitle(trUtf8("Departure type table"));//NOTE move
 
 }
 
@@ -70,20 +62,15 @@ void MainWindow::openDB()
 
 void MainWindow::editSignalingTable()
 {
-    signalingTableView->exec();
 }
 
 void MainWindow::editDeparturesTypeTable()
 {
-    departuresTypeView->exec();//NOTE modify
 }
 
 void MainWindow::showSignalingForm()
 {
-    SignalingForm *addSignalingTable = new SignalingForm();
-    addSignalingTable->setWindowTitle(trUtf8("Add departure to trigger the alarm"));
-    addSignalingTable->setMapper(signalingMapper);
-    addSignalingTable->exec();
+
 }
 
 bool MainWindow::connectDB(const QString &dbName)
@@ -112,40 +99,10 @@ bool MainWindow::createDB(const QString &dbName)
 
 void MainWindow::createModel()
 {
-    deleteModel();//NOTE !
 
-    mainTable = new Table(0, "Main");
-    mainTable->openTable();
-    mainMapper = new TableIOMapper(mainTable);
-
-    departuresTypeTable = new Table(0, "DeparturesType");//NOTE move
-    departuresTypeTable->openTable();//NOTE move
-    departuresTypeMapper = new TableIOMapper(departuresTypeTable);//NOTE move
-
-    signalingTable = new Table(0, "Signaling");
-    signalingTable->openTable();
-    signalingTable->addRelation("DepTypeID", "DeparturesType", "DepTypeID", "DepType");
-    signalingMapper = new TableIOMapper(signalingTable);
 }
 
 void MainWindow::setupView()
 {
-    signalingTableView->setMapper(signalingMapper);
 
-    departuresTypeView->setMapper(departuresTypeMapper);//NOTE  move
-
-    mainMapper->setView(ui->tableView);
-//    ui->tableView->setColumnHidden(0, true);
-    ui->tableView->resizeColumnsToContents();
-}
-
-void MainWindow::deleteModel()
-{
-    delete signalingMapper;
-    delete departuresTypeMapper;//NOTE move
-    delete mainMapper;
-
-    delete mainTable;
-    delete signalingTable;
-    delete departuresTypeTable;
 }
