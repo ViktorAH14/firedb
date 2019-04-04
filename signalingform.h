@@ -7,7 +7,7 @@ namespace Ui {
 class SignalingForm;
 }
 
-//class QSqlTableModel;
+class QSqlRelationalTableModel;
 class QDataWidgetMapper;
 
 class SignalingForm : public QDialog
@@ -24,7 +24,7 @@ private slots:
 private:
     Ui::SignalingForm *ui;
 
-//    QSqlTableModel *m_model;
+    QSqlRelationalTableModel *m_model;
     QDataWidgetMapper *m_mapper;
 
     void createModel();

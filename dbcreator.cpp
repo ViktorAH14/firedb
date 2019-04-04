@@ -259,7 +259,7 @@ bool DBCreator::createSignalingTable(QSqlQuery query)
     query.prepare("CREATE TABLE Signaling("
                   "SignalingID  INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "DepTypeID    INTEGER NOT NULL, "
-                  "Address       TEXT    NOT NULL, "
+                  "Address      TEXT    NOT NULL, "
                   "DepDate      TEXT    NOT NULL, "
                   "DepTime      TEXT    NOT NULL, "
                   "ArrivalDate  TEXT    NOT NULL, "

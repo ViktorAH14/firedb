@@ -1,8 +1,10 @@
 #include "signalingform.h"
 #include "ui_signalingform.h"
 
-//#include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
 #include <QDataWidgetMapper>
+#include <QSqlQuery>
+#include <QSqlRecord>
 
 SignalingForm::SignalingForm(QWidget *parent) :
     QDialog(parent),
@@ -18,9 +20,9 @@ SignalingForm::SignalingForm(QWidget *parent) :
 
     createModel();
 
-//    m_model->insertRow(m_model->rowCount(QModelIndex()));
+    m_model->insertRow(m_model->rowCount(QModelIndex()));
     m_mapper->toLast();
-//    ui->lineEditDepType->setText("Пожар");
+    ui->lineEditDepType->setText("Пожар");
 
 }
 
@@ -32,19 +34,28 @@ SignalingForm::~SignalingForm()
 void SignalingForm::addSignalingDeparture()
 {
     m_mapper->submit();
-//    m_model->submitAll();
+    QString deptypeID = "select * from DeparturesType where (DepType = '%1')";
+    QSqlQuery query;
+    query.exec(deptypeID.arg(ui->lineEditDepType->text()));
+    QSqlRecord rec = query.record();
+    int nameCol = rec.indexOf("DepTypeID");
+    query.next();
+    int row = m_model->rowCount(QModelIndex()) - 1;
+    m_model->setData(m_model->index(row, 1), query.value(nameCol).toInt());
+    m_model->submitAll();
     this->close();
 }
 
 void SignalingForm::createModel()
 {
-//    m_model = new QSqlTableModel();
-//    m_model->setTable("Signaling");
-//    m_model->setEditStrategy(QSqlTableModel::OnManualSubmit);
-//    m_model->select();
+    m_model = new QSqlRelationalTableModel(this);
+    m_model->setTable("Signaling");
+    m_model->setRelation(1, QSqlRelation("DeparturesType", "DepTypeID", "DepType"));
+    m_model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    m_model->select();
 
     m_mapper = new QDataWidgetMapper();
-//    m_mapper->setModel(m_model);
+    m_mapper->setModel(m_model);
     m_mapper->addMapping(ui->lineEditDepType, 1);
     m_mapper->addMapping(ui->lineEditAddress, 2);
     m_mapper->addMapping(ui->dateEditDep, 3);
