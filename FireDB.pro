@@ -15,16 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     dbcreator.cpp \
-    singletableview.cpp \
     signalingform.cpp
 
 HEADERS  += mainwindow.h \
     dbcreator.h \
-    singletableview.h \
     signalingform.h
 
 FORMS    += mainwindow.ui \
-    tableview.ui \
     signalingform.ui
 
 RESOURCES += \
