@@ -22,7 +22,7 @@ SignalingForm::SignalingForm(QWidget *parent) :
 
     m_model->insertRow(m_model->rowCount(QModelIndex()));
     m_mapper->toLast();
-    ui->lineEditDepType->setText("Пожар");
+    ui->lineEditDepType->setText("сигнализация");
 
 }
 
