@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SingleForm</class>
+ <widget class="QDialog" name="SingleForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>543</width>
+    <height>346</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTableView" name="tableView"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pbAdd">
+       <property name="text">
+        <string>Add</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pbDelete">
+       <property name="text">
+        <string>Delete</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pbSave">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pbCancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pbCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>SingleForm</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>492</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>271</x>
+     <y>172</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pbAdd</sender>
+   <signal>clicked()</signal>
+   <receiver>SingleForm</receiver>
+   <slot>addRow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>271</x>
+     <y>172</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pbSave</sender>
+   <signal>clicked()</signal>
+   <receiver>SingleForm</receiver>
+   <slot>saveRecord()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>271</x>
+     <y>172</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pbDelete</sender>
+   <signal>clicked()</signal>
+   <receiver>SingleForm</receiver>
+   <slot>deleteRecord()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>271</x>
+     <y>172</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addRow()</slot>
+  <slot>saveRecord()</slot>
+  <slot>deleteRecord()</slot>
+ </slots>
+</ui>

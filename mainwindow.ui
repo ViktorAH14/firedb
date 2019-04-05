@@ -142,20 +142,32 @@
      </property>
      <addaction name="actionAddSignalingDeparture"/>
     </widget>
-    <widget class="QMenu" name="menuEdit_table">
-     <property name="title">
-      <string>Edit table</string>
-     </property>
-     <addaction name="actionEditSignalling"/>
-     <addaction name="actionEditDeparturesType"/>
-    </widget>
     <widget class="QMenu" name="menuType_Here">
      <property name="title">
-      <string>Type Here</string>
+      <string>Edit subtable</string>
      </property>
+     <addaction name="actionEditAccidentAlertTable"/>
+     <addaction name="actionEditBarrelTypeTable"/>
+     <addaction name="actionEditCauseFireTable"/>
+     <addaction name="actionEditDepTypeTable"/>
+     <addaction name="actionEditDistrictsTable"/>
+     <addaction name="actionEditExistingASFTable"/>
+     <addaction name="actionEditFireResistanceTable"/>
+     <addaction name="actionEditHeatingTypeTable"/>
+     <addaction name="actionEditOwnTypeTable"/>
+     <addaction name="actionEditRatingTable"/>
+     <addaction name="actionEditSecondDamagedFactorsTable"/>
+     <addaction name="actionEditSourseInfTable"/>
+     <addaction name="actionEditTrainigTypeTable"/>
+     <addaction name="actionEditTypeASRTable"/>
+     <addaction name="actionEditTypeInstrumentTable"/>
+     <addaction name="actionEditTypeObjectTable"/>
+     <addaction name="actionEditTypeUnuccountingFireTable"/>
+     <addaction name="actionEditTypeTrafficAccidentTable"/>
+     <addaction name="actionEditVehicleTypeTable"/>
+     <addaction name="actionEditVentilationTypeTable"/>
     </widget>
     <addaction name="menuAdd_departures"/>
-    <addaction name="menuEdit_table"/>
     <addaction name="menuType_Here"/>
    </widget>
    <addaction name="menuFile"/>
@@ -236,25 +248,109 @@
     <string>AboutQt</string>
    </property>
   </action>
-  <action name="actionEditDeparturesType">
-   <property name="text">
-    <string>EditDeparturesType</string>
-   </property>
-   <property name="toolTip">
-    <string>Edit DeparturesTypeTable</string>
-   </property>
-  </action>
-  <action name="actionEditSignalling">
-   <property name="text">
-    <string>EditSignalling</string>
-   </property>
-   <property name="toolTip">
-    <string>Edit Signalling table</string>
-   </property>
-  </action>
   <action name="actionAddSignalingDeparture">
    <property name="text">
     <string>AddSignalingDeparture</string>
+   </property>
+  </action>
+  <action name="actionEditDepTypeTable">
+   <property name="text">
+    <string>EditDepTypeTable</string>
+   </property>
+  </action>
+  <action name="actionEditVehicleTypeTable">
+   <property name="text">
+    <string>EditVehicleTypeTable</string>
+   </property>
+  </action>
+  <action name="actionEditTypeASRTable">
+   <property name="text">
+    <string>EditTypeASRTable</string>
+   </property>
+  </action>
+  <action name="actionEditExistingASFTable">
+   <property name="text">
+    <string>EditExistingASFTable</string>
+   </property>
+  </action>
+  <action name="actionEditTypeInstrumentTable">
+   <property name="text">
+    <string>EditTypeInstrumentTable</string>
+   </property>
+  </action>
+  <action name="actionEditTypeTrafficAccidentTable">
+   <property name="text">
+    <string>EditTypeTrafficAccidentTable</string>
+   </property>
+  </action>
+  <action name="actionEditAccidentAlertTable">
+   <property name="text">
+    <string>EditAccidentAlertTable</string>
+   </property>
+  </action>
+  <action name="actionEditSourseInfTable">
+   <property name="text">
+    <string>EditSourseInfTable</string>
+   </property>
+  </action>
+  <action name="actionEditSecondDamagedFactorsTable">
+   <property name="text">
+    <string>EditSecondDamagedFactorsTable</string>
+   </property>
+  </action>
+  <action name="actionEditTrainigTypeTable">
+   <property name="text">
+    <string>EditTrainigTypeTable</string>
+   </property>
+  </action>
+  <action name="actionEditTypeUnuccountingFireTable">
+   <property name="text">
+    <string>EditTypeUnuccountingFireTable</string>
+   </property>
+  </action>
+  <action name="actionEditDistrictsTable">
+   <property name="text">
+    <string>EditDistrictsTable</string>
+   </property>
+  </action>
+  <action name="actionEditFireResistanceTable">
+   <property name="text">
+    <string>EditFireResistanceTable</string>
+   </property>
+  </action>
+  <action name="actionEditCauseFireTable">
+   <property name="text">
+    <string>EditCauseFireTable</string>
+   </property>
+  </action>
+  <action name="actionEditRatingTable">
+   <property name="text">
+    <string>EditRatingTable</string>
+   </property>
+  </action>
+  <action name="actionEditTypeObjectTable">
+   <property name="text">
+    <string>EditTypeObjectTable</string>
+   </property>
+  </action>
+  <action name="actionEditOwnTypeTable">
+   <property name="text">
+    <string>EditOwnTypeTable</string>
+   </property>
+  </action>
+  <action name="actionEditVentilationTypeTable">
+   <property name="text">
+    <string>EditVentilationTypeTable</string>
+   </property>
+  </action>
+  <action name="actionEditHeatingTypeTable">
+   <property name="text">
+    <string>EditHeatingTypeTable</string>
+   </property>
+  </action>
+  <action name="actionEditBarrelTypeTable">
+   <property name="text">
+    <string>EditBarrelTypeTable</string>
    </property>
   </action>
  </widget>
@@ -312,38 +408,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>actionEditDeparturesType</sender>
-   <signal>triggered(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>editDeparturesTypeTable()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>548</x>
-     <y>365</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionEditSignalling</sender>
-   <signal>triggered(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>editSignalingTable()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>548</x>
-     <y>365</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pbApply</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -375,6 +439,326 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionEditDepTypeTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showDepTypeTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditVehicleTypeTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showVehicleTypeTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditTypeASRTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showTypeASRTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditExistingASFTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showExistingASFTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditTypeInstrumentTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showTypeInstrumentTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditTypeTrafficAccidentTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showTypeTrafficAccidentTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditAccidentAlertTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showAccidentAlertTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditSourseInfTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showSourceInfTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditSecondDamagedFactorsTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showSecondDamagedFactorsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditTrainigTypeTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showTrainingTypeTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditTypeUnuccountingFireTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showTypeUnuccountingFireTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditDistrictsTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showDistrictsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditFireResistanceTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showFireResistanceTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditCauseFireTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showCauseFireTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditRatingTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showRatingTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditTypeObjectTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showTypeObjectTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditOwnTypeTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showOwnTypeTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditVentilationTypeTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showVentilationTypeTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditHeatingTypeTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showHeatingTypeTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEditBarrelTypeTable</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showBarrelTypeTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>newDB()</slot>
@@ -383,5 +767,25 @@
   <slot>editSignalingTable()</slot>
   <slot>showSignalingForm()</slot>
   <slot>sortData()</slot>
+  <slot>showDepTypeTable()</slot>
+  <slot>showVehicleTypeTable()</slot>
+  <slot>showTypeASRTable()</slot>
+  <slot>showExistingASFTable()</slot>
+  <slot>showTypeInstrumentTable()</slot>
+  <slot>showTypeTrafficAccidentTable()</slot>
+  <slot>showAccidentAlertTable()</slot>
+  <slot>showSourceInfTable()</slot>
+  <slot>showSecondDamagedFactorsTable()</slot>
+  <slot>showTrainingTypeTable()</slot>
+  <slot>showTypeUnuccountingFireTable()</slot>
+  <slot>showDistrictsTable()</slot>
+  <slot>showFireResistanceTable()</slot>
+  <slot>showCauseFireTable()</slot>
+  <slot>showRatingTable()</slot>
+  <slot>showTypeObjectTable()</slot>
+  <slot>showOwnTypeTable()</slot>
+  <slot>showVentilationTypeTable()</slot>
+  <slot>showHeatingTypeTable()</slot>
+  <slot>showBarrelTypeTable()</slot>
  </slots>
 </ui>

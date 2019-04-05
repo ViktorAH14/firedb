@@ -15,14 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     dbcreator.cpp \
-    signalingform.cpp
+    signalingform.cpp \
+    singleform.cpp
 
 HEADERS  += mainwindow.h \
     dbcreator.h \
-    signalingform.h
+    signalingform.h \
+    singleform.h
 
 FORMS    += mainwindow.ui \
-    signalingform.ui
+    signalingform.ui \
+    singleform.ui
 
 RESOURCES += \
     firepdep.qrc

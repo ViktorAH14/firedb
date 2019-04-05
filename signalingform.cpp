@@ -34,7 +34,7 @@ SignalingForm::~SignalingForm()
 void SignalingForm::addSignalingDeparture()
 {
     m_mapper->submit();
-    QString deptypeID = "select * from DeparturesType where (DepType = '%1')";
+    QString deptypeID = "SELECT * FROM DeparturesType WHERE (DepType = '%1')";
     QSqlQuery query;
     query.exec(deptypeID.arg(ui->lineEditDepType->text()));
     QSqlRecord rec = query.record();
@@ -43,6 +43,7 @@ void SignalingForm::addSignalingDeparture()
     int row = m_model->rowCount(QModelIndex()) - 1;
     m_model->setData(m_model->index(row, 1), query.value(nameCol).toInt());
     m_model->submitAll();
+    emit modelChanged();
     this->close();
 }
 

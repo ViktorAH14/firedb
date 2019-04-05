@@ -18,6 +18,9 @@ public:
     explicit SignalingForm(QWidget *parent = 0);
     ~SignalingForm();
 
+signals:
+    void modelChanged();
+
 private slots:
     void addSignalingDeparture();
 

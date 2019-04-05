@@ -24,9 +24,30 @@ private slots:
     void newDB();
     void openDB();
     void sortData();
-    void editSignalingTable();
-    void editDeparturesTypeTable();
     void showSignalingForm();
+
+    void showAccidentAlertTable();
+    void showBarrelTypeTable();
+    void showCauseFireTable();
+    void showDepTypeTable();
+    void showDistrictsTable();
+    void showExistingASFTable();
+    void showFireResistanceTable();
+    void showHeatingTypeTable();
+    void showOwnTypeTable();
+    void showSecondDamagedFactorsTable();
+    void showSourceInfTable();
+    void showRatingTable();
+    void showTrainingTypeTable();
+    void showTypeASRTable();
+    void showTypeInstrumentTable();
+    void showTypeObjectTable();
+    void showTypeUnuccountingFireTable();
+    void showTypeTrafficAccidentTable();
+    void showVehicleTypeTable();
+    void showVentilationTypeTable();
+
+    void updateModel();
 
 private:
     Ui::MainWindow *ui;
@@ -38,11 +59,6 @@ private:
 
     QString dbName;
     QSqlTableModel *m_model;
-
-    SingleTableView *signalingTableView;
-
-    SingleTableView *departuresTypeView;
-
 };
 
 #endif // MAINWINDOW_H
