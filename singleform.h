@@ -7,33 +7,31 @@ namespace Ui {
 class SingleForm;
 }
 
-class QSqlTableModel;
+class QSqlRelationalTableModel;
+class QDataWidgetMapper;
 
 class SingleForm : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit SingleForm(const QString &tableName, const QString &columnName, QWidget *parent = 0);
+    explicit SingleForm(QWidget *parent = 0);
     ~SingleForm();
 
 signals:
     void modelChanged();
 
 private slots:
-    void addRow();
-    void saveRecord();
-    void deleteRecord();
+    void addSignalingDeparture();
 
 private:
     Ui::SingleForm *ui;
 
-    QSqlTableModel *m_model;
-    QString m_tableName;
-    QString m_columnName;
+    QSqlRelationalTableModel *m_model;
+    QDataWidgetMapper *m_mapper;
 
     void createModel();
-    void setupView();
+
 };
 
 #endif // SINGLEFORM_H

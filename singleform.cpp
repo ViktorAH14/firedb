@@ -1,18 +1,29 @@
 #include "singleform.h"
 #include "ui_singleform.h"
 
-#include <QSqlTableModel>
-#include <QMessageBox>
+#include <QSqlRelationalTableModel>
+#include <QDataWidgetMapper>
+#include <QSqlQuery>
+#include <QSqlRecord>
 
-SingleForm::SingleForm(const QString &tableName, const QString &columnName, QWidget *parent) :
+SingleForm::SingleForm(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SingleForm)
 {
     ui->setupUi(this);
-    m_tableName = tableName;
-    m_columnName = columnName;
+    ui->dateEditDep->setDate(QDate::currentDate());
+    ui->timeEditDep->setTime(QTime::currentTime());
+    ui->dateEditArrival->setDate(QDate::currentDate());
+    ui->timeEditArrival->setTime(QTime::currentTime());
+    ui->dateEditReturn->setDate(QDate::currentDate());
+    ui->timeEditReturn->setTime(QTime::currentTime());
+
     createModel();
-    setupView();
+
+    m_model->insertRow(m_model->rowCount(QModelIndex()));
+    m_mapper->toLast();
+    ui->lineEditDepType->setText("сигнализация");
+
 }
 
 SingleForm::~SingleForm()
@@ -20,43 +31,40 @@ SingleForm::~SingleForm()
     delete ui;
 }
 
-void SingleForm::addRow()
+void SingleForm::addSignalingDeparture()
 {
-    m_model->insertRow(m_model->rowCount(QModelIndex()));
-    ui->tableView->setFocus();
-    ui->tableView->setCurrentIndex(QModelIndex(m_model->index(m_model->rowCount() - 1, 1)));
-}
-
-void SingleForm::saveRecord()
-{
-    if (!m_model->submitAll()) {
-        QMessageBox::critical(this, trUtf8("Critical"), trUtf8("Unable to save record"));
-    } else {
-        emit modelChanged();
-        ui->tableView->setFocus();
-        ui->tableView->setCurrentIndex(QModelIndex(m_model->index(m_model->rowCount() - 1, 1)));
-    }
-}
-
-void SingleForm::deleteRecord()
-{
-    int row = ui->tableView->currentIndex().row();
-    m_model->removeRow(row);
+    m_mapper->submit();
+    QString deptypeID = "SELECT * FROM DeparturesType WHERE (DepType = '%1')";
+    QSqlQuery query;
+    query.exec(deptypeID.arg(ui->lineEditDepType->text()));
+    QSqlRecord rec = query.record();
+    int nameCol = rec.indexOf("DepTypeID");
+    query.next();
+    int row = m_model->rowCount(QModelIndex()) - 1;
+    m_model->setData(m_model->index(row, 1), query.value(nameCol).toInt());
+    m_model->submitAll();
+    emit modelChanged();
+    this->close();
 }
 
 void SingleForm::createModel()
 {
-    m_model = new QSqlTableModel(this);
-    m_model->setTable(m_tableName);
-    m_model->setHeaderData(1, Qt::Horizontal, m_columnName);
+    m_model = new QSqlRelationalTableModel(this);
+    m_model->setTable("Signaling");
+    m_model->setRelation(1, QSqlRelation("DeparturesType", "DepTypeID", "DepType"));
     m_model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     m_model->select();
-}
 
-void SingleForm::setupView()
-{
-    ui->tableView->setModel(m_model);
-    ui->tableView->resizeColumnsToContents();
-    ui->tableView->horizontalHeader()->setStretchLastSection(true);
-    ui->tableView->hideColumn(0);
+    m_mapper = new QDataWidgetMapper();
+    m_mapper->setModel(m_model);
+    m_mapper->addMapping(ui->lineEditDepType, 1);
+    m_mapper->addMapping(ui->lineEditAddress, 2);
+    m_mapper->addMapping(ui->dateEditDep, 3);
+    m_mapper->addMapping(ui->timeEditDep, 4);
+    m_mapper->addMapping(ui->dateEditArrival, 5);
+    m_mapper->addMapping(ui->timeEditArrival, 6);
+    m_mapper->addMapping(ui->dateEditReturn, 7);
+    m_mapper->addMapping(ui->timeEditReturn, 8);
+    m_mapper->addMapping(ui->textEditDescripton, 9);
+    m_mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 }
