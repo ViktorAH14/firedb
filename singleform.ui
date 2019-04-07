@@ -449,8 +449,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>lineEditAddress</sender>
+   <signal>editingFinished()</signal>
+   <receiver>SingleForm</receiver>
+   <slot>resizeLineEditAddress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>217</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>312</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addSignalingDeparture()</slot>
+  <slot>resizeLineEditAddress()</slot>
  </slots>
 </ui>

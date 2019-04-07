@@ -24,6 +24,7 @@ SingleForm::SingleForm(const QString &depType, QWidget *parent) :
     m_mapper->toLast();
     m_depType = depType;
     ui->lineEditDepType->setText(m_depType);
+    resizeLineEditDepType();
 
 }
 
@@ -48,6 +49,18 @@ void SingleForm::addSignalingDeparture()
     this->close();
 }
 
+void SingleForm::resizeLineEditAddress()
+{
+    QString text = ui->lineEditAddress->text();
+    QFont font("", 0);
+    QFontMetrics fm(font);
+    int pixelsWide = fm.width(text);
+    int pixelsHigh = fm.height();
+    ui->lineEditAddress->setFixedSize(pixelsWide, pixelsHigh);
+    this->adjustSize();
+
+}
+
 void SingleForm::createModel()
 {
     m_model = new QSqlRelationalTableModel(this);
@@ -68,4 +81,15 @@ void SingleForm::createModel()
     m_mapper->addMapping(ui->timeEditReturn, 8);
     m_mapper->addMapping(ui->textEditDescripton, 9);
     m_mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
+}
+
+void SingleForm::resizeLineEditDepType()
+{
+    QString text = ui->lineEditDepType->text();
+    QFont font("", 0);
+    QFontMetrics fm(font);
+    int pixelsWide = fm.width(text);
+    int pixelsHidh = fm.height();
+    ui->lineEditDepType->setFixedSize(pixelsWide, pixelsHidh);
+    this->adjustSize();
 }

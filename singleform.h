@@ -23,6 +23,7 @@ signals:
 
 private slots:
     void addSignalingDeparture();
+    void resizeLineEditAddress();
 
 private:
     Ui::SingleForm *ui;
@@ -32,6 +33,7 @@ private:
     QString m_depType;
 
     void createModel();
+    void resizeLineEditDepType();
 
 };
 
