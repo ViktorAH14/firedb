@@ -16,16 +16,19 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     dbcreator.cpp \
     subtableview.cpp \
-    singleform.cpp
+    singleform.cpp \
+    trainingform.cpp
 
 HEADERS  += mainwindow.h \
     dbcreator.h \
     subtableview.h \
-    singleform.h
+    singleform.h \
+    trainingform.h
 
 FORMS    += mainwindow.ui \
     subtableview.ui \
-    singleform.ui
+    singleform.ui \
+    trainingform.ui
 
 RESOURCES += \
     firepdep.qrc
