@@ -105,6 +105,15 @@ void MainWindow::showFireSafetyForm()
     addFireSafetyDeparture->exec();
 }
 
+void MainWindow::showOwerForm()
+{
+    QString depType = "прочие";
+    SingleForm *addOwerDeparture = new SingleForm(depType);
+    connect(addOwerDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
+    addOwerDeparture->setWindowTitle(trUtf8("Add ower departure"));
+    addOwerDeparture->exec();
+}
+
 void MainWindow::showDepTypeTable()
 {
     QString tableName = "DeparturesType";

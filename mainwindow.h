@@ -29,6 +29,7 @@ private slots:
     void showFalseDepForm();
     void showAssistingForm();
     void showFireSafetyForm();
+    void showOwerForm();
 
     void showAccidentAlertTable();
     void showBarrelTypeTable();

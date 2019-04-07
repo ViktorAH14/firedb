@@ -144,6 +144,7 @@
      <addaction name="actionAddFalseDeparture"/>
      <addaction name="actionAddFireSafetyDeparture"/>
      <addaction name="actionAddSignalingDeparture"/>
+     <addaction name="actionAddOwerDeparture"/>
     </widget>
     <widget class="QMenu" name="menuType_Here">
      <property name="title">
@@ -369,6 +370,11 @@
   <action name="actionAddFireSafetyDeparture">
    <property name="text">
     <string>AddFireSafetyDeparture</string>
+   </property>
+  </action>
+  <action name="actionAddOwerDeparture">
+   <property name="text">
+    <string>AddOwerDeparture</string>
    </property>
   </action>
  </widget>
@@ -825,6 +831,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionAddOwerDeparture</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showOwerForm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>newDB()</slot>
@@ -856,5 +878,6 @@
   <slot>showFalseDepForm()</slot>
   <slot>showAssistingForm()</slot>
   <slot>showFireSafetyForm()</slot>
+  <slot>showOwerForm()</slot>
  </slots>
 </ui>
