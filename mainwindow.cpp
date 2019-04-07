@@ -81,10 +81,19 @@ void MainWindow::showSignalingForm()
 void MainWindow::showFalseDepForm()
 {
     QString depType = "ложный";
-    SingleForm *addSignalingDeparture = new SingleForm(depType);
-    connect(addSignalingDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
-    addSignalingDeparture->setWindowTitle(trUtf8("Add exit to the false departure"));
-    addSignalingDeparture->exec();
+    SingleForm *addFalseDeparture = new SingleForm(depType);
+    connect(addFalseDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
+    addFalseDeparture->setWindowTitle(trUtf8("Add exit to the false departure"));
+    addFalseDeparture->exec();
+}
+
+void MainWindow::showAssistingForm()
+{
+    QString depType = "помощь населению";
+    SingleForm *addAssistingDeparture = new SingleForm(depType);
+    connect(addAssistingDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
+    addAssistingDeparture->setWindowTitle(trUtf8("Add exit to the assisting"));
+    addAssistingDeparture->exec();
 }
 
 void MainWindow::showDepTypeTable()

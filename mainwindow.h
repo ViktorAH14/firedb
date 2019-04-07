@@ -24,8 +24,10 @@ private slots:
     void newDB();
     void openDB();
     void sortData();
+
     void showSignalingForm();
     void showFalseDepForm();
+    void showAssistingForm();
 
     void showAccidentAlertTable();
     void showBarrelTypeTable();
