@@ -15,7 +15,7 @@ class SingleForm : public QDialog
     Q_OBJECT
 
 public:
-    explicit SingleForm(QWidget *parent = 0);
+    explicit SingleForm(const QString &depType, QWidget *parent = 0);
     ~SingleForm();
 
 signals:
@@ -29,6 +29,7 @@ private:
 
     QSqlRelationalTableModel *m_model;
     QDataWidgetMapper *m_mapper;
+    QString m_depType;
 
     void createModel();
 

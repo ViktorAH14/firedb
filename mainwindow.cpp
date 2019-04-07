@@ -71,7 +71,8 @@ void MainWindow::sortData()
 
 void MainWindow::showSignalingForm()
 {
-    SingleForm *addSignalingDeparture = new SingleForm();
+    QString depType = "сигнализация";
+    SingleForm *addSignalingDeparture = new SingleForm(depType);
     connect(addSignalingDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
     addSignalingDeparture->setWindowTitle(trUtf8("Add exit to the alarm"));
     addSignalingDeparture->exec();

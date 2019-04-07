@@ -6,7 +6,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
-SingleForm::SingleForm(QWidget *parent) :
+SingleForm::SingleForm(const QString &depType, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SingleForm)
 {
@@ -22,7 +22,8 @@ SingleForm::SingleForm(QWidget *parent) :
 
     m_model->insertRow(m_model->rowCount(QModelIndex()));
     m_mapper->toLast();
-    ui->lineEditDepType->setText("сигнализация");
+    m_depType = depType;
+    ui->lineEditDepType->setText(m_depType);
 
 }
 
