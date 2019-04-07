@@ -74,7 +74,7 @@ void MainWindow::showSignalingForm()
     QString depType = "сигнализация";
     SingleForm *addSignalingDeparture = new SingleForm(depType);
     connect(addSignalingDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
-    addSignalingDeparture->setWindowTitle(trUtf8("Add exit to the alarm"));
+    addSignalingDeparture->setWindowTitle(trUtf8("Add signaling departure"));
     addSignalingDeparture->exec();
 }
 
@@ -83,7 +83,7 @@ void MainWindow::showFalseDepForm()
     QString depType = "ложный";
     SingleForm *addFalseDeparture = new SingleForm(depType);
     connect(addFalseDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
-    addFalseDeparture->setWindowTitle(trUtf8("Add exit to the false departure"));
+    addFalseDeparture->setWindowTitle(trUtf8("Add false departure"));
     addFalseDeparture->exec();
 }
 
@@ -92,8 +92,17 @@ void MainWindow::showAssistingForm()
     QString depType = "помощь населению";
     SingleForm *addAssistingDeparture = new SingleForm(depType);
     connect(addAssistingDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
-    addAssistingDeparture->setWindowTitle(trUtf8("Add exit to the assisting"));
+    addAssistingDeparture->setWindowTitle(trUtf8("Add assisting departure"));
     addAssistingDeparture->exec();
+}
+
+void MainWindow::showFireSafetyForm()
+{
+    QString depType = "обеспечение пожарной безопасности";
+    SingleForm *addFireSafetyDeparture = new SingleForm(depType);
+    connect(addFireSafetyDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
+    addFireSafetyDeparture->setWindowTitle(trUtf8("Add fire safety departure"));
+    addFireSafetyDeparture->exec();
 }
 
 void MainWindow::showDepTypeTable()
