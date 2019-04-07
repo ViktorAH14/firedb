@@ -78,6 +78,15 @@ void MainWindow::showSignalingForm()
     addSignalingDeparture->exec();
 }
 
+void MainWindow::showFalseDepForm()
+{
+    QString depType = "ложный";
+    SingleForm *addSignalingDeparture = new SingleForm(depType);
+    connect(addSignalingDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
+    addSignalingDeparture->setWindowTitle(trUtf8("Add exit to the false departure"));
+    addSignalingDeparture->exec();
+}
+
 void MainWindow::showDepTypeTable()
 {
     QString tableName = "DeparturesType";

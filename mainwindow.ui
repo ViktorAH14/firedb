@@ -140,6 +140,7 @@
      <property name="title">
       <string>Add departures</string>
      </property>
+     <addaction name="actionAddFalseDeparture"/>
      <addaction name="actionAddSignalingDeparture"/>
     </widget>
     <widget class="QMenu" name="menuType_Here">
@@ -351,6 +352,11 @@
   <action name="actionEditBarrelTypeTable">
    <property name="text">
     <string>EditBarrelTypeTable</string>
+   </property>
+  </action>
+  <action name="actionAddFalseDeparture">
+   <property name="text">
+    <string>AddFalseDeparture</string>
    </property>
   </action>
  </widget>
@@ -759,6 +765,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionAddFalseDeparture</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showFalseDepForm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>newDB()</slot>
@@ -787,5 +809,6 @@
   <slot>showVentilationTypeTable()</slot>
   <slot>showHeatingTypeTable()</slot>
   <slot>showBarrelTypeTable()</slot>
+  <slot>showFalseDepForm()</slot>
  </slots>
 </ui>
