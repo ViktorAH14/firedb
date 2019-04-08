@@ -3,6 +3,7 @@
 #include "dbcreator.h"
 #include "singleform.h"
 #include "subtableview.h"
+#include "trainingform.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -112,6 +113,13 @@ void MainWindow::showOwerForm()
     connect(addOwerDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
     addOwerDeparture->setWindowTitle(trUtf8("Add ower departure"));
     addOwerDeparture->exec();
+}
+
+void MainWindow::showTrainingForm()
+{
+    TrainingForm *addTrainingDeparture = new TrainingForm();
+    connect(addTrainingDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
+    addTrainingDeparture->exec();
 }
 
 void MainWindow::showDepTypeTable()

@@ -22,7 +22,7 @@ signals:
     void modelChanged();
 
 private slots:
-    void addSignalingDeparture();
+    void addSingleDeparture();
     void resizeLineEditAddress();
 
 private:

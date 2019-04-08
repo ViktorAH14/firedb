@@ -434,7 +434,7 @@
    <sender>pbApply</sender>
    <signal>clicked()</signal>
    <receiver>SingleForm</receiver>
-   <slot>addSignalingDeparture()</slot>
+   <slot>addSingleDeparture()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>488</x>
@@ -480,7 +480,7 @@
   </connection>
  </connections>
  <slots>
-  <slot>addSignalingDeparture()</slot>
+  <slot>addSingleDeparture()</slot>
   <slot>resizeLineEditAddress()</slot>
  </slots>
 </ui>

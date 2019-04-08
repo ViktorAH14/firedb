@@ -461,5 +461,41 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pbApply</sender>
+   <signal>clicked()</signal>
+   <receiver>TrainingForm</receiver>
+   <slot>addTrainingDeparture()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>306</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>281</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEditAddress</sender>
+   <signal>editingFinished()</signal>
+   <receiver>TrainingForm</receiver>
+   <slot>resizeLineEditAddress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>182</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>281</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>addTrainingDeparture()</slot>
+  <slot>resizeLineEditAddress()</slot>
+ </slots>
 </ui>

@@ -13,16 +13,12 @@ SingleForm::SingleForm(const QString &depType, QWidget *parent) :
     ui->setupUi(this);
     ui->dateEditDep->setDate(QDate::currentDate());
     ui->timeEditDep->setTime(QTime::currentTime());
-    ui->dateEditArrival->setDate(QDate::currentDate());
-    ui->timeEditArrival->setTime(QTime::currentTime());
-    ui->dateEditReturn->setDate(QDate::currentDate());
-    ui->timeEditReturn->setTime(QTime::currentTime());
 
     createModel();
-
     m_model->insertRow(m_model->rowCount(QModelIndex()));
     m_mapper->toLast();
     m_depType = depType;
+
     ui->lineEditDepType->setText(m_depType);
     resizeLineEditDepType();
 
@@ -33,7 +29,7 @@ SingleForm::~SingleForm()
     delete ui;
 }
 
-void SingleForm::addSignalingDeparture()
+void SingleForm::addSingleDeparture()
 {
     m_mapper->submit();
     QString deptypeID = "SELECT * FROM DeparturesType WHERE (DepType = '%1')";
