@@ -4,6 +4,7 @@
 #include "singleform.h"
 #include "subtableview.h"
 #include "trainingform.h"
+#include "unuccountingfireform.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -120,6 +121,13 @@ void MainWindow::showTrainingForm()
     TrainingForm *addTrainingDeparture = new TrainingForm();
     connect(addTrainingDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
     addTrainingDeparture->exec();
+}
+
+void MainWindow::showUnuccountingFireForm()
+{
+    UnuccountingFireForm *addUnuccountingFireDeparture = new UnuccountingFireForm();
+    connect(addUnuccountingFireDeparture, SIGNAL(modelChanged()), this, SLOT(updateModel()));
+    addUnuccountingFireDeparture->exec();
 }
 
 void MainWindow::showDepTypeTable()

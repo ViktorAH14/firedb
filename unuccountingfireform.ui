@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TrainingForm</class>
- <widget class="QDialog" name="TrainingForm">
+ <class>UnuccountingFireForm</class>
+ <widget class="QDialog" name="UnuccountingFireForm">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>563</width>
-    <height>328</height>
+    <width>654</width>
+    <height>544</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add training departure</string>
+   <string>Add unuccounting fire departure</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_12">
+    <layout class="QHBoxLayout" name="horizontalLayout_18">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -52,10 +52,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>тренировка</string>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
+            <string>неучетный пожар</string>
            </property>
           </widget>
          </item>
@@ -64,12 +61,12 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLabel" name="lbTrainingType">
+          <widget class="QLabel" name="lbTypeUnuccountingFire">
            <property name="text">
-            <string>Training type</string>
+            <string>Type unuccounting fire</string>
            </property>
            <property name="buddy">
-            <cstring>comboBoxTrainingType</cstring>
+            <cstring>cBoxTypeUnuccountingFire</cstring>
            </property>
           </widget>
          </item>
@@ -87,14 +84,14 @@
           </spacer>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBoxTrainingType"/>
+          <widget class="QComboBox" name="cBoxTypeUnuccountingFire"/>
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLabel" name="lbAdress">
+          <widget class="QLabel" name="lbAddress">
            <property name="text">
             <string>Address</string>
            </property>
@@ -104,7 +101,7 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_4">
+          <spacer name="horizontalSpacer_3">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -131,9 +128,46 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
+          <widget class="QLabel" name="lbReported">
+           <property name="text">
+            <string>Reported</string>
+           </property>
+           <property name="buddy">
+            <cstring>lineEditReported</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditReported">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>1</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
           <widget class="QLabel" name="lbDepDate">
            <property name="text">
-            <string>Departure date</string>
+            <string>Departure date]</string>
            </property>
            <property name="buddy">
             <cstring>dateEditDeparture</cstring>
@@ -159,7 +193,7 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <widget class="QLabel" name="lbDepTime">
            <property name="text">
@@ -189,7 +223,7 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
          <item>
           <widget class="QLabel" name="lbArrivalDate">
            <property name="text">
@@ -219,7 +253,7 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
          <item>
           <widget class="QLabel" name="lbArrivalTime">
            <property name="text">
@@ -227,36 +261,6 @@
            </property>
            <property name="buddy">
             <cstring>timeEditArrival</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QTimeEdit" name="timeEditArrival"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_8">
-         <item>
-          <widget class="QLabel" name="lbReturnDate">
-           <property name="text">
-            <string>Return date</string>
-           </property>
-           <property name="buddy">
-            <cstring>dateEditReturn</cstring>
            </property>
           </widget>
          </item>
@@ -274,12 +278,222 @@
           </spacer>
          </item>
          <item>
-          <widget class="QDateEdit" name="dateEditReturn"/>
+          <widget class="QTimeEdit" name="timeEditArrival"/>
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <item>
+          <widget class="QLabel" name="lbFirstBarrelDate">
+           <property name="text">
+            <string>First barrel date</string>
+           </property>
+           <property name="buddy">
+            <cstring>dateEditFirstBarrel</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QDateEdit" name="dateEditFirstBarrel"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <widget class="QLabel" name="lbFirstBarrelTime">
+           <property name="text">
+            <string>First barrel time</string>
+           </property>
+           <property name="buddy">
+            <cstring>timeEditFirstBarrel</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeEditFirstBarrel"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QLabel" name="lbLocDate">
+           <property name="text">
+            <string>Localization date</string>
+           </property>
+           <property name="buddy">
+            <cstring>dateEditLocalization</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_11">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QDateEdit" name="dateEditLocalization"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <item>
+          <widget class="QLabel" name="lbLocalizationTime">
+           <property name="text">
+            <string>Localization time</string>
+           </property>
+           <property name="buddy">
+            <cstring>timeEditLocalization</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeEditLocalization"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QLabel" name="lbMitigationDate">
+           <property name="text">
+            <string>Mitigation date</string>
+           </property>
+           <property name="buddy">
+            <cstring>dateEditMitigation</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_13">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QDateEdit" name="dateEditMitigation"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <item>
+          <widget class="QLabel" name="lbMitigationTime">
+           <property name="text">
+            <string>Mitigation time</string>
+           </property>
+           <property name="buddy">
+            <cstring>timeEditMitigation</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_14">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeEditMitigation"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_15">
+         <item>
+          <widget class="QLabel" name="lbReturnDate">
+           <property name="text">
+            <string>Return date</string>
+           </property>
+           <property name="buddy">
+            <cstring>dateEditReturn</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_15">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QDateEdit" name="dateEditReturn"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_16">
          <item>
           <widget class="QLabel" name="lbReturnTime">
            <property name="text">
@@ -291,7 +505,7 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_9">
+          <spacer name="horizontalSpacer_16">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -324,7 +538,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_10">
+      <layout class="QHBoxLayout" name="horizontalLayout_17">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
@@ -333,7 +547,7 @@
             <string>Description</string>
            </property>
            <property name="buddy">
-            <cstring>plainTextEditDescription</cstring>
+            <cstring>pTextEditdescription</cstring>
            </property>
           </widget>
          </item>
@@ -353,7 +567,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QPlainTextEdit" name="plainTextEditDescription">
+        <widget class="QPlainTextEdit" name="pTextEditdescription">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>1</horstretch>
@@ -367,7 +581,7 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_11">
+    <layout class="QHBoxLayout" name="horizontalLayout_19">
      <item>
       <widget class="QPushButton" name="pbApply">
        <property name="text">
@@ -376,7 +590,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_10">
+      <spacer name="horizontalSpacer_17">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -389,7 +603,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pbCansel">
+      <widget class="QPushButton" name="pbCancel">
        <property name="text">
         <string>Cancel</string>
        </property>
@@ -402,18 +616,34 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pbCansel</sender>
+   <sender>pbCancel</sender>
    <signal>clicked()</signal>
-   <receiver>TrainingForm</receiver>
+   <receiver>UnuccountingFireForm</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>512</x>
-     <y>306</y>
+     <x>603</x>
+     <y>522</y>
     </hint>
     <hint type="destinationlabel">
-     <x>281</x>
-     <y>163</y>
+     <x>326</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pbApply</sender>
+   <signal>clicked()</signal>
+   <receiver>UnuccountingFireForm</receiver>
+   <slot>addUnuccountingFireDeparture()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>522</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>326</x>
+     <y>271</y>
     </hint>
    </hints>
   </connection>
@@ -424,28 +654,12 @@
    <slot>setDate(QDate)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>192</x>
-     <y>113</y>
+     <x>254</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
-     <x>192</x>
-     <y>175</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>dateEditArrival</sender>
-   <signal>dateChanged(QDate)</signal>
-   <receiver>dateEditReturn</receiver>
-   <slot>setDate(QDate)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>192</x>
-     <y>175</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>192</x>
-     <y>237</y>
+     <x>254</x>
+     <y>205</y>
     </hint>
    </hints>
   </connection>
@@ -456,66 +670,162 @@
    <slot>setTime(QTime)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>202</x>
-     <y>144</y>
+     <x>264</x>
+     <y>174</y>
     </hint>
     <hint type="destinationlabel">
-     <x>202</x>
-     <y>206</y>
+     <x>264</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dateEditArrival</sender>
+   <signal>dateChanged(QDate)</signal>
+   <receiver>dateEditFirstBarrel</receiver>
+   <slot>setDate(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dateEditFirstBarrel</sender>
+   <signal>dateChanged(QDate)</signal>
+   <receiver>dateEditLocalization</receiver>
+   <slot>setDate(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>267</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dateEditLocalization</sender>
+   <signal>dateChanged(QDate)</signal>
+   <receiver>dateEditMitigation</receiver>
+   <slot>setDate(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>391</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dateEditMitigation</sender>
+   <signal>dateChanged(QDate)</signal>
+   <receiver>dateEditReturn</receiver>
+   <slot>setDate(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>391</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>453</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>timeEditArrival</sender>
    <signal>timeChanged(QTime)</signal>
-   <receiver>timeEditReturn</receiver>
+   <receiver>timeEditFirstBarrel</receiver>
    <slot>setTime(QTime)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>202</x>
-     <y>206</y>
+     <x>264</x>
+     <y>236</y>
     </hint>
     <hint type="destinationlabel">
-     <x>202</x>
-     <y>268</y>
+     <x>264</x>
+     <y>298</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pbApply</sender>
-   <signal>clicked()</signal>
-   <receiver>TrainingForm</receiver>
-   <slot>addTrainingDeparture()</slot>
+   <sender>timeEditFirstBarrel</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>timeEditLocalization</receiver>
+   <slot>setTime(QTime)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>49</x>
-     <y>306</y>
+     <x>264</x>
+     <y>298</y>
     </hint>
     <hint type="destinationlabel">
-     <x>281</x>
-     <y>163</y>
+     <x>264</x>
+     <y>360</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>timeEditLocalization</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>timeEditMitigation</receiver>
+   <slot>setTime(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>360</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>264</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>timeEditMitigation</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>timeEditReturn</receiver>
+   <slot>setTime(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>264</x>
+     <y>484</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>lineEditAddress</sender>
    <signal>editingFinished()</signal>
-   <receiver>TrainingForm</receiver>
+   <receiver>UnuccountingFireForm</receiver>
    <slot>resizeLineEditAddress()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>182</x>
+     <x>242</x>
      <y>82</y>
     </hint>
     <hint type="destinationlabel">
-     <x>281</x>
-     <y>163</y>
+     <x>326</x>
+     <y>271</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
-  <slot>addTrainingDeparture()</slot>
+  <slot>addUnuccountingFireDeparture()</slot>
   <slot>resizeLineEditAddress()</slot>
  </slots>
 </ui>

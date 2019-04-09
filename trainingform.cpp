@@ -6,8 +6,6 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
-#include <QDebug>
-
 TrainingForm::TrainingForm(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TrainingForm)

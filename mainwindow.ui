@@ -146,6 +146,7 @@
      <addaction name="actionAddSignalingDeparture"/>
      <addaction name="actionAddTrainingDeparture"/>
      <addaction name="actionAddOwerDeparture"/>
+     <addaction name="actionAddUnucountingFireDeparture"/>
     </widget>
     <widget class="QMenu" name="menuType_Here">
      <property name="title">
@@ -381,6 +382,11 @@
   <action name="actionAddTrainingDeparture">
    <property name="text">
     <string>AddTrainingDeparture</string>
+   </property>
+  </action>
+  <action name="actionAddUnucountingFireDeparture">
+   <property name="text">
+    <string>AddUnucountingFireDeparture</string>
    </property>
   </action>
  </widget>
@@ -869,6 +875,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionAddUnucountingFireDeparture</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showUnuccountingFireForm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>newDB()</slot>
@@ -902,5 +924,6 @@
   <slot>showFireSafetyForm()</slot>
   <slot>showOwerForm()</slot>
   <slot>showTrainingForm()</slot>
+  <slot>showUnuccountingFireForm()</slot>
  </slots>
 </ui>
